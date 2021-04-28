@@ -217,19 +217,19 @@ class MoonBoard:
         time.sleep(0.4)
 
         # A
-        or i in [21, 22, 23, 24, 25, 48, 50, 57, 58, 59, 60, 61]:
+        for i in [21, 22, 23, 24, 25, 48, 50, 57, 58, 59, 60, 61]:
             self.layout.set(i, 'blue')
         self.layout.push_to_driver()
         time.sleep(0.4)
 
         # H
-        or i in [136, 137, 138, 139, 140, 149, 172, 173, 174, 175, 176]:
+        for i in [136, 137, 138, 139, 140, 149, 172, 173, 174, 175, 176]:
             self.layout.set(i, 'red')
         self.layout.push_to_driver()
         time.sleep(0.4)
 
         # O
-        or i in [28, 29, 30, 31, 32, 39, 43, 64, 65, 66, 67, 68]:
+        for i in [28, 29, 30, 31, 32, 39, 43, 64, 65, 66, 67, 68]:
             self.layout.set(i, 'white')
         self.layout.push_to_driver()
         time.sleep(0.4)
