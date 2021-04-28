@@ -80,5 +80,5 @@ class UnstuffSequence():
             else:
                 self.logger.debug('error: not started')
                 self.s= ''
-        else:
+        elif s!='\x02\x00':
             self.s+=s

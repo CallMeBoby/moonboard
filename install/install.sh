@@ -1,5 +1,7 @@
 #!/bin/bash
 
+sudo su
+
 echo "Enable SPI"
 sudo sed -i 's/\#dtparam=spi=on/dtparam=spi=on/g' /boot/config.txt
 

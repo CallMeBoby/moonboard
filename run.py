@@ -55,7 +55,7 @@ if __name__ == "__main__":
     parser.add_argument('--driver_type',
                         help='driver type, depends on leds and device controlling the led.',
                         choices=['PiWS281x', 'WS2801', 'SimPixel'],
-                        default='WS2801')
+                        default='PiWS281x')
 
     parser.add_argument('--brightness',  default=100, type=int)
 
@@ -82,9 +82,11 @@ if __name__ == "__main__":
     led_layout = LED_LAYOUT.get(args.led_layout) if args.led_layout is not None else None
     MOONBOARD = MoonBoard(args.driver_type, led_layout)
     
-    # run led led
-    #MOONBOARD.led_test()
-    #MOONBOARD.clear()
+    # run led test
+    MOONBOARD.led_test()
+
+    # welcome Raho
+    MOONBOARD.led_raho()
 
     # connect to dbus signal new problem
     dbml = DBusGMainLoop(set_as_default=True)

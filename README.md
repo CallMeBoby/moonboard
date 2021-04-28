@@ -26,7 +26,7 @@ Besides the tools, time and money (the climbing holds are the most expensive com
 
 # Build Instructions
 
-- [How to Build a Home Climbing Wall](doc/BUILD-WALL.md)
+- [How to Build a Home Climbing Wall](https://www.moonboard.com/how-to-build-your-moonboard/)
 - [How to Build the LED System](doc/BUILD-LEDSYSTEM.md)
 - [Software Description](doc/OVERVIEW-SOFTWARE.md)
 
