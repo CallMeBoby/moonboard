@@ -3,8 +3,8 @@ Description=Moonboard BLE Service
 After=multi-user.target bluetooth.service hciuart.service mosquitto.service
 
 [Service]
-WorkingDirectory=/home/pi/moonboard/ble/
-ExecStart=/usr/bin/python3 /home/pi/moonboard/ble/moonboard_ble_service.py 
+WorkingDirectory=/home/bob/moonboard/ble/
+ExecStart=/usr/bin/python3 /home/bob/moonboard/ble/moonboard_ble_service.py 
 Type=idle
 User=root
 Restart=on-failure

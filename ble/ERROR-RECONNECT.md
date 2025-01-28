@@ -17,6 +17,6 @@ Traceback (most recent call last):
     self.process_rx(unstuffer,logger,data)
   File "moon_ble_mqtt_proto.py", line 93, in process_rx
     new_problem_string= unstuffer.process_bytes(ba)
-  File "/home/pi/moonboard/ble/moonboard_app_protocol.py", line 54, in process_bytes
+  File "/home/bob/moonboard/ble/moonboard_app_protocol.py", line 54, in process_bytes
     s = bytearray.fromhex(ba).decode()
 UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position 2: invalid start byte

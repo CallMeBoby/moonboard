@@ -46,7 +46,7 @@ The WS2811 LED strips have three wires (colors may differ in your case):
 ```
 sudo systemctl stop moonboard.service
 cd ~/moonboard/led
-sudo /usr/bin/python3  /home/pi/moonboard/led/moonboard.py  --driver_type PiWS281x --holdset "Hold Set A"
+sudo /usr/bin/python3  /home/bob/moonboard/led/moonboard.py  --driver_type PiWS281x --holdset "Hold Set A"
 ```
 
 
@@ -54,7 +54,7 @@ sudo /usr/bin/python3  /home/pi/moonboard/led/moonboard.py  --driver_type PiWS28
 - Create a custom layout in <TBD> FIXME moonboard.py
 ```
 sudo systemctl stop moonboard.service
-sudo /usr/bin/python3  /home/pi/moonboard/run.py --debug --driver PiWS281x
+sudo /usr/bin/python3  /home/bob/moonboard/run.py --debug --driver PiWS281x
 ```
 - Running the script in testing mode
 ```
