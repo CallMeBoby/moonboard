@@ -21,7 +21,7 @@ sudo apt-get -y install libatlas-base-dev
 sudo apt-get -y install python-dev swig scons # for building WS2811 drivers
 
 echo "Install application"
-test -d moonboard || git clone https://github.com/8cH9azbsFifZ/moonboard.git
+test -d moonboard || git clone https://github.com/CallMeBoby/moonboard.git
 cd moonboard
 git pull
 
