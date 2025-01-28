@@ -78,7 +78,7 @@ class MoonBoard:
     # FIXME: json
     MAPPING= { }
 
-    with open('/home/pi/moonboard/led/led_mapping.json') as json_file:
+    with open('/home/bob/moonboard/led/led_mapping.json') as json_file:
         data = json.load(json_file)
         MAPPING = data
 
