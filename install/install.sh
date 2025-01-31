@@ -33,23 +33,23 @@ sudo pip3 install -r install/requirements.txt
 
 
 echo "Install service" # FIXME
-cd /home/pi/moonboard/services
+cd /home/bob/moonboard/services
 sudo ./install_service.sh moonboard.service 
-cd /home/pi/moonboard
+cd /home/bob/moonboard
 
 
 echo "Install DBUS service"
-sudo cp /home/pi/moonboard/ble/com.moonboard.conf /etc/dbus-1/system.d
-sudo cp /home/pi/moonboard/ble/com.moonboard.service /usr/share/dbus-1/system-services/
+sudo cp /home/bob/moonboard/ble/com.moonboard.conf /etc/dbus-1/system.d
+sudo cp /home/bob/moonboard/ble/com.moonboard.service /usr/share/dbus-1/system-services/
 
 
 echo "Prepare logfiles"
 sudo touch /var/log/moonboard
-sudo chown pi:pi /var/log/moonboard
-sudo chown pi:pi /var/log/moonboard
+sudo chown bob:bob /var/log/moonboard
+sudo chown bob:bob /var/log/moonboard
 
 # Prepare phase 2 to run at boot
-sudo cp --verbose /home/pi/moonboard/services/moonboard-install.service /lib/systemd/system/moonboard-install.service
+sudo cp --verbose /home/bob/moonboard/services/moonboard-install.service /lib/systemd/system/moonboard-install.service
 sudo chmod 644 /lib/systemd/system/moonboard-install.service
 sudo systemctl daemon-reload
 sudo systemctl enable moonboard-install.service

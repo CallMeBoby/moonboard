@@ -4,9 +4,9 @@ Description= moon board app service
 After=multi-user.target
 
 [Service]
-User=pi
+User=bob
 Type=idle
-ExecStart=/bin/bash /home/pi/moonboard/scripts/run.sh
+ExecStart=/bin/bash /home/bob/moonboard/scripts/run.sh
 
 [Install]
 WantedBy=multi-user.target
