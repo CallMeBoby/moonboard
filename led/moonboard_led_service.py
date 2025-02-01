@@ -80,7 +80,7 @@ if __name__ == "__main__":
 
     parser.add_argument('--led_mapping',
                         type=str,  
-                        default='led_mapping.json', 
+                        default='led_mapping_sequential.json', 
                         )
 
     parser.add_argument('--debug',  action = "store_true")
