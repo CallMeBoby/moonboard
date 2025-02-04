@@ -2,7 +2,7 @@
 
 echo "Install services" # FIXME
 cd /home/bob/moonboard/ble
-make install
+make install_dbus
 cd ..
 
 cd /home/bob/moonboard/led
