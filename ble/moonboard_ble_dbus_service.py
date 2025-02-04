@@ -8,6 +8,7 @@ import string,json
 import subprocess
 import logging
 from moonboard_app_protocol import UnstuffSequence, decode_problem_string
+import paho.mqtt.client as mqtt
 
 import os
 import threading
@@ -75,6 +76,7 @@ class OutStream:
 class MoonApplication(dbus.service.Object):
     IFACE = "com.moonboard.method"
     def __init__(self, bus, socket,logger):
+        self._start_mqtt()
         self.path = '/com/moonboard'
         self.services = []
         self.logger=logger
@@ -108,6 +110,7 @@ class MoonApplication(dbus.service.Object):
         if new_problem_string is not None:
             problem= decode_problem_string(new_problem_string, flags)
             self.new_problem(json.dumps(problem))
+            self._sendmessage("/problem", json.dumps(problem)) # FIXME
             self.unstuffer.flags = ''
             start_adv(self.logger)
 
@@ -131,6 +134,20 @@ class MoonApplication(dbus.service.Object):
             for chrc in chrcs:
                 response[chrc.get_path()] = chrc.get_properties()
         return response
+    
+    def _start_mqtt(self):
+        # Connect to MQTT
+        hostname = "raspi-moonboard" # FIXME
+        port = 1883 # FIXME
+        self._client = mqtt.Client()
+        self._client.connect(hostname, port,60)
+        self._sendmessage("/status", "Starting")
+ 
+    def _sendmessage(self, topic="/none", message="None"):
+        ttopic = "moonboard/ble"+topic
+        mmessage = str(message)
+        #logging.debug("MQTT>: " + ttopic + " ###> " + mmessage)
+        self._client.publish(ttopic, mmessage)
 
 def register_app_cb():
     print('GATT application registered')
@@ -228,7 +245,6 @@ def main(logger,adapter):
         print("Unexpected exception occurred: '{}'".format(str(e)))
     finally:
         loop.quit()
-
  
 if __name__ == '__main__':
     
