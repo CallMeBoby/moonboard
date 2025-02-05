@@ -136,7 +136,7 @@ if __name__=="__main__":
                         default = "PiWS281x")
     parser.add_argument('--led_mapping', type=str,
                         help='Relative path JSON file containing the led mapping.',
-                        default = "led_mapping.json")                   
+                        default = "led_mapping_sequential.json")                   
     parser.add_argument('--duration',  type=int, default=10,
                         help='Delay of progress.')
     parser.add_argument('--holdset',  type=str, help="Display a holdset for current layout", 
@@ -152,7 +152,7 @@ if __name__=="__main__":
     MOONBOARD.led_layout_test(args.duration) 
 
     # Display a holdset
-    MOONBOARD.display_holdset(args.holdset, args.duration)
+    #MOONBOARD.display_holdset(args.holdset, args.duration)
 
     print("clear and exit.")
     MOONBOARD.clear()
