@@ -101,7 +101,7 @@ class MoonApplication(dbus.service.Object):
                     if 'Data:' in line:
                         data = line.replace(' ','').replace('\x1b','').replace('[0m','').replace('Data:','')
                         self.process_rx(data)
-                        self.logger.info('New data '+ data)
+                        self.logger.debug('New data '+ data)
 
     def process_rx(self,ba):
         new_problem_string= self.unstuffer.process_bytes(ba)
@@ -117,7 +117,7 @@ class MoonApplication(dbus.service.Object):
     @dbus.service.signal(dbus_interface="com.moonboard",
                             signature="s")
     def new_problem(self, problem):
-        self.logger.info('Signal new problem: '+ str(problem))
+        self.logger.debug('Signal new problem: '+ str(problem))
 
     def get_path(self):
         return dbus.ObjectPath(self.path)
@@ -182,7 +182,7 @@ def run(*popenargs, **kwargs):
 
 
 def setup_adv(logger):
-    logger.info('setup adv')
+    logger.debug('setup adv')
     setup_adv = [
     "hcitool -i hci0 cmd 0x08 0x000a 00",
     "hcitool -i hci0 cmd 0x08 0x0008 18 02 01 06 02 0a 00 11 07 9e ca dc 24 0e e5 a9 e0 93 f3 a3 b5 01 00 40 6e 00 00 00 00 00 00 00",
@@ -196,17 +196,17 @@ def setup_adv(logger):
 def start_adv(logger,start=True):
     if start:
         start='01'
-        logger.info('start adv')
+        logger.debug('start adv')
     else:
         start='00'
-        logger.info('stop adv')
+        logger.debug('stop adv')
     start_adv= "hcitool -i hci0 cmd 0x08 0x000a {}".format(start)
     run("sudo " +start_adv, shell=True)
 
 def main(logger,adapter):
     global mainloop
 
-    logger.info("Bluetooth adapter: "+ str(adapter))
+    logger.debug("Bluetooth adapter: "+ str(adapter))
 
     dbus.mainloop.glib.DBusGMainLoop(set_as_default=True)
     bus = dbus.SystemBus()
@@ -227,7 +227,7 @@ def main(logger,adapter):
  
     loop = GLib.MainLoop()
 
-    logger.info('app path: '+ app.get_path())
+    logger.debug('app path: '+ app.get_path())
 
     service_manager.RegisterApplication(app.get_path(), {},
                                         reply_handler=register_app_cb,
