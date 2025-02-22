@@ -253,7 +253,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Moonboard bluetooth service')
     parser.add_argument('--debug',  action = "store_true")
 
-    args = parser.parse_args()
+    args = parser.parse_args(['--debug'])
     argsd=vars(args)
 
     logger = logging.getLogger('moonboard.ble')
