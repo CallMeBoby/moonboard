@@ -32,7 +32,14 @@ def decode_problem_string(s, flags):
         colors = False
 
     for h in s.split(','):
-        t,p = h[0],position_trans(int(h[1:]), num_rows)
+        t = h[0]
+        try:
+            p = position_trans(int(h[1:]), num_rows)
+        except Exception as X:
+            #error in decoding show red led in A1
+            t = 'E'
+            p = 1
+        
         if t=='S':
             holds['START'].append(p)
         if colors: 
