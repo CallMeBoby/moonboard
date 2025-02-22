@@ -108,6 +108,7 @@ class MoonApplication(dbus.service.Object):
         flags = self.unstuffer.flags
 
         if new_problem_string is not None:
+            self.logger.debug('Before decode->'+ new_problem_string)
             problem=decode_problem_string(new_problem_string, flags)
             self.new_problem(json.dumps(problem))
             self._sendmessage("/problem", json.dumps(problem)) # FIXME
