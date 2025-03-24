@@ -116,7 +116,7 @@ class Database():
         logging.debug("Start recording data from mqtt to database")
         self._client= paho.Client("client-001")  # FIXME
         self._client.on_message=self._on_message
-        self._client.connect(hostname,port,60)#connect
+        self._client.connect(hostname, port, 86400)#connect
 
         # FIXME: subscribe to all?
         

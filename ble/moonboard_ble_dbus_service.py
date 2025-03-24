@@ -141,7 +141,7 @@ class MoonApplication(dbus.service.Object):
         hostname = "raspi-moonboard" # FIXME
         port = 1883 # FIXME
         self._client = mqtt.Client()
-        self._client.connect(hostname, port,30000)
+        self._client.connect(hostname, port, 86400)
         self._sendmessage("/status", "Starting")
  
     def _sendmessage(self, topic="/none", message="None"):
